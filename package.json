@@ -1,12 +1,13 @@
 {
   "name": "simple2k13",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "some simple functions",
   "main": "dist/simple.min.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "start": "webpack --env development --node-env development",
-    "build": "webpack --env production --node-env production --progress"
+    "build": "webpack --env production --node-env production --progress && tsc"
   },
   "repository": {
     "type": "git",

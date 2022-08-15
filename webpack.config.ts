@@ -13,7 +13,7 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
       path: __dirname + '/dist',
       filename: '[name].min.js',
       library: {
-        export: 'default',
+        // export: 'default',
         name: 'simple',
         type: 'umd',
         umdNamedDefine: true,

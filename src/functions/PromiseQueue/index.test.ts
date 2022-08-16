@@ -1,4 +1,4 @@
-import { PromiseQueue } from '../../index'
+import { PromiseQueue } from '../..'
 
 function promiseFunc(props: any) {
   return new Promise((resolve) => {
@@ -6,7 +6,7 @@ function promiseFunc(props: any) {
       resolve('')
       // console.count('count')
       // console.log(props, 'props')
-    }, Math.random() * 1000 + 1000)
+    }, Math.random() * 100 + 100)
   })
 }
 

@@ -1,4 +1,4 @@
-import { ComputeStore } from '../../index'
+import { ComputeStore } from '../..'
 
 const storeStore = new ComputeStore()
 const func = (e: any) => e

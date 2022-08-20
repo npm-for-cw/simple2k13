@@ -4,6 +4,7 @@ export default async (): Promise<Config.InitialOptions> => {
   return {
     verbose: true,
     testEnvironment: 'jsdom',
+    setupFiles: ["jest-canvas-mock"],
     // moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     // transform: {
     //   '^.+\\.(ts|tsx)$': 'ts-jest',

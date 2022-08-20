@@ -1,14 +1,19 @@
-import { PromiseQueue, ComputeStore } from './functions'
+import { PromiseQueue, ComputeStore, Once } from './functions'
 import { isNull, env } from './right'
+import { canvasDrawImage } from './image'
 export {
   PromiseQueue,
   ComputeStore,
+  Once,
   isNull,
-  env
+  env,
+  canvasDrawImage
 }
 export default {
   PromiseQueue,
   ComputeStore,
+  Once,
   isNull,
-  env
+  env,
+  canvasDrawImage
 }

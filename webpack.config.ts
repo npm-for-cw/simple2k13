@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { Configuration } from 'webpack';
 
 const isDevelopment = process.env.NODE_ENV === 'development'
@@ -21,7 +22,10 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
       clean: true
     },
     resolve: {
-      extensions: ['.ts', '.js']
+      extensions: ['.ts', '.js'], 
+      alias: {
+        '@src': join(__dirname, 'src'),
+      }
     },
     module: {
       rules: [

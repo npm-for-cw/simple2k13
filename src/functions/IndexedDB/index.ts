@@ -29,7 +29,7 @@ class IndexedDB {
         reject(event)
         console.log('数据库打开失败...')
       }
-      res.onupgradeneeded = (event: amy) => {
+      res.onupgradeneeded = (event: any) => {
         // 数据库创建或升级的时候会触发
         const storeName = this.storeName
         const db = event.target.result

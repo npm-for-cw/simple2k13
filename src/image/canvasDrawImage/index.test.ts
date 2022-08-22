@@ -1,3 +1,4 @@
+import 'jest-canvas-mock';
 import { canvasDrawImage } from '../../'
 
 

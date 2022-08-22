@@ -1,6 +1,6 @@
 import { Once } from "../../";
 
-const once = new Once((...e) => e)
+const once = new Once((...e:any[]) => e)
 const params = ["hello", "world"]
 
 describe("Once", () => {

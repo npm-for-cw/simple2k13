@@ -1,2 +1,2 @@
-// import { PromiseQueue } from '../dist/simple.min.js'
-// console.log(PromiseQueue)
+import simple from '../dist'
+console.log(simple)

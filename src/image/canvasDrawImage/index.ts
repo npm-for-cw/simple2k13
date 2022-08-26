@@ -12,10 +12,10 @@ const canvasDrawImage = (canvas: HTMLCanvasElement, url: string, zoom: number = 
       img.onload = () => {
         let iW = img.width
         let iH = img.height
-        if (cW <= iH) {
-          scale = cW / iW
-        } else {
+        if ((cW / cH) > (iW / iH)) {
           scale = cH / iH
+        } else {
+          scale = cW / iW
         }
         iW = iW * scale * zoom
         iH = iH * scale * zoom

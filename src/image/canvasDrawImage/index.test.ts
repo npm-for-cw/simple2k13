@@ -35,7 +35,7 @@ describe('canvasDrawImage', () => {
       await canvasDrawImage(canvas, 'failureUrl', 4)
     } catch (error) {
       expect(error).toBeDefined()
-      console.log(error)
+      // console.log(error)
     }
   })
 })

@@ -1,5 +1,5 @@
 import { PromiseQueue, ComputeStore, Once, IndexedDB } from './functions'
-import { isNull, env } from './right'
+import { isNull, env, dataType } from './right'
 import { canvasDrawImage } from './image'
 export {
   PromiseQueue,
@@ -8,6 +8,7 @@ export {
   IndexedDB,
   isNull,
   env,
+  dataType,
   canvasDrawImage
 }
 export default {
@@ -17,5 +18,6 @@ export default {
   IndexedDB,
   isNull,
   env,
+  dataType,
   canvasDrawImage
 }

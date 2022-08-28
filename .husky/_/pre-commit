@@ -1,0 +1,9 @@
+
+echo 'test'
+
+yarn test
+
+
+echo 'lint'
+
+yarn lint

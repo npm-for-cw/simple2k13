@@ -1,1 +1,1 @@
-export { default as canvasDrawImage } from './canvasDrawImage/'
+export { default as canvasDrawImage } from './canvasDrawImage'

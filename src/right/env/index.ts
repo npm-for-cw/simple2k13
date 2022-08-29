@@ -1,7 +1,7 @@
 
 const env = (userAgent?: string, platform?: string) => {
 
-  const { userAgent: _userAgent, platform: _platform } = window.navigator;
+  const { userAgent: _userAgent, platform: _platform } = navigator;
   userAgent = userAgent || _userAgent
   platform = platform || _platform
 

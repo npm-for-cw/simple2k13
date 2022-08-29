@@ -2,6 +2,7 @@
 import { PromiseQueue, ComputeStore, Once, IndexedDB } from './functions'
 import { isNull, env, dataType } from './right'
 import { canvasDrawImage } from './image'
+import { arrayBufferToJson, isDICM } from './buffer'
 import { version } from '../package.json'
 export {
   version,
@@ -12,7 +13,9 @@ export {
   isNull,
   env,
   dataType,
-  canvasDrawImage
+  canvasDrawImage,
+  arrayBufferToJson,
+  isDICM
 }
 export default {
   version,
@@ -23,5 +26,7 @@ export default {
   isNull,
   env,
   dataType,
-  canvasDrawImage
+  canvasDrawImage,
+  arrayBufferToJson,
+  isDICM
 }

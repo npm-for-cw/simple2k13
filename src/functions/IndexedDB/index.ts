@@ -14,13 +14,13 @@ class IndexedDB {
   open() {
     return new Promise((resolve, reject) => {
       // @ts-ignore
-      const myIndexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB
+      const myIndexedDB = indexedDB || webkitIndexedDB || mozIndexedDB || msIndexedDB
       if (!myIndexedDB) {
         const error = new Error('IndexedDB is not supported')
         console.warn(error)
         return reject(error)
       }
-      const res = window.indexedDB.open(this.dbName, this.version)
+      const res = indexedDB.open(this.dbName, this.version)
       res.onsuccess = (event: any) => {
         this.db = event.target.result // 数据库对象
         resolve(event)

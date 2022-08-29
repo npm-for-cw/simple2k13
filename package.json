@@ -2,13 +2,16 @@
   "name": "simple2k13",
   "version": "0.0.5",
   "description": "some simple functions",
+  "private": "false",
   "main": "dist/simple.min.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "start": "webpack --env development --node-env development",
     "build": "webpack --env production --node-env production --progress && tsc",
-    "prepare": "husky install",
+    "_postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
     "lint": "eslint --fix src",
     "lint-staged": "lint-staged"
   },
@@ -29,7 +32,7 @@
     "js",
     "cw"
   ],
-  "author": "cw",
+  "author": "cw<cw2k13as@gmail.com>",
   "license": "LGPL-3.0",
   "homepage": "https://github.com/npm-for-cw/simple2k13",
   "devDependencies": {
@@ -53,6 +56,7 @@
     "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^28.1.3",
     "lint-staged": "^13.0.3",
+    "pinst": "^3.0.0",
     "ts-jest": "^28.0.7",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",

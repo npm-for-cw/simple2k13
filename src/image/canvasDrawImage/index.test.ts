@@ -1,5 +1,5 @@
 import 'jest-canvas-mock';
-import { canvasDrawImage } from '../../'
+import { canvasDrawImage } from '../..'
 
 
 const LOAD_FAILURE_SRC = 'failureUrl';

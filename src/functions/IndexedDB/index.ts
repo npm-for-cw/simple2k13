@@ -14,13 +14,13 @@ class IndexedDB {
   open() {
     return new Promise((resolve, reject) => {
       // @ts-ignore
-      const myIndexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB
+      const myIndexedDB = indexedDB || webkitIndexedDB || mozIndexedDB || msIndexedDB
       if (!myIndexedDB) {
         const error = new Error('IndexedDB is not supported')
         console.warn(error)
         return reject(error)
       }
-      const res = window.indexedDB.open(this.dbName, this.version)
+      const res = indexedDB.open(this.dbName, this.version)
       res.onsuccess = (event: any) => {
         this.db = event.target.result // 数据库对象
         resolve(event)
@@ -48,14 +48,8 @@ class IndexedDB {
     return new Promise(async (resolve, reject) => {
       const objectStore = await this.getObjectStore(mode)
       const storePrototype = objectStore[func]
-      // @ts-ignore
-      if (func === 'help') {
-        console.log('reference resources:https://developer.mozilla.org/zh-CN/docs/Web/API/IDBObjectStore')
-        return resolve(objectStore)
-      }
       if (!(func in objectStore)) {
-        console.log('reference resources:https://developer.mozilla.org/zh-CN/docs/Web/API/IDBObjectStore')
-        return reject(`${func} is undefined`)
+        return reject(`${func} is undefined, reference resources:https://developer.mozilla.org/zh-CN/docs/Web/API/IDBObjectStore`)
       }
       if (typeof storePrototype == 'function') {
         // @ts-ignore

@@ -1,4 +1,4 @@
-import { dataType } from '../../'
+import { dataType } from '../..'
 
 
 const testMap = [

@@ -39,7 +39,7 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
     },
     plugins: [
       new BannerPlugin({
-        banner: `simple2k13.js <cw cw2k13@gmail.com> version：${version}`
+        banner: `simple2k13.js <cw cw2k13as@gmail.com> version：${version}`
       })
     ]
   }

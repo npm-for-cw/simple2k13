@@ -1,6 +1,7 @@
 import { join } from 'path';
-import { Configuration } from 'webpack';
-
+import { Configuration, BannerPlugin } from 'webpack';
+//@ts-ignore
+import { version } from './package.json';
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 const config: (env: any, argv: any) => Configuration = function (env, argv) {
@@ -22,7 +23,7 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
       clean: true
     },
     resolve: {
-      extensions: ['.ts', '.js'], 
+      extensions: ['.ts', '.js'],
       alias: {
         '@src': join(__dirname, 'src'),
       }
@@ -36,7 +37,11 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
         },
       ]
     },
-    plugins: []
+    plugins: [
+      new BannerPlugin({
+        banner: `simple2k13.js <cw cw2k13as@gmail.com> version：${version}`
+      })
+    ]
   }
 }
 export default config;

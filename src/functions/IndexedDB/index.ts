@@ -39,7 +39,7 @@ class IndexedDB {
       }
     })
   }
-  store(func: ObjectStoreFunName, options: { mode?: string, more?: Boolean } = {}, ...args: any[]): Promise<any> {
+  dispatch(func: ObjectStoreFunName, options: { mode?: string, more?: Boolean } = {}, ...args: any[]): Promise<any> {
     const {
       mode = 'readwrite',
       more = false

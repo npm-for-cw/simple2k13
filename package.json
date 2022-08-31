@@ -1,16 +1,14 @@
 {
   "name": "simple2k13",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "some simple functions",
-  "private": "false",
   "main": "dist/simple.min.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "start": "webpack --env development --node-env development",
     "build": "webpack --env production --node-env production --progress && tsc",
-    "_postinstall": "husky install",
-    "prepack": "pinst --disable",
+    "postinstall": "husky install",
     "postpack": "pinst --enable",
     "lint": "eslint --fix src",
     "lint-staged": "lint-staged"

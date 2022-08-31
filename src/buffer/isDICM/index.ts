@@ -1,4 +1,4 @@
-const isDICM = (buffer: Buffer) => {
+const isDICM = (buffer: ArrayBuffer) => {
   if (!buffer || !buffer.byteLength || buffer.byteLength <= 132) return false
   let str = ""
   const view = new Uint8Array(buffer, 128, 4)

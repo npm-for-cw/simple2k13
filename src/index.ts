@@ -5,6 +5,8 @@ import { canvasDrawImage } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
 import { version } from '../package.json'
+
+
 export {
   version,
   PromiseQueue,

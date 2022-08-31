@@ -5,6 +5,9 @@ import { canvasDrawImage } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
 import { version } from '../package.json'
+
+console.log(`simple2k13.js version: ${version}`)
+
 export {
   version,
   PromiseQueue,

@@ -4,10 +4,10 @@ type ScriptAttributes<T = HTMLScriptElement> = {
 }
 type AttributeObject = Pick<ScriptAttributes, 'async' | 'charset' | 'crossOrigin' | 'defer' | 'noModule' | 'src' | 'type'>
 
-const importScript = (url: string, name: string, attributes: AttributeObject) => {
+const importScript = (url: string, name: string, attributes: AttributeObject = {}) => {
   if (name) {
-    name = `#script${name}`
-    if (!!document.querySelector(name)) return
+    name = `script${name}`
+    if (!!document.querySelector(`#${name}`)) return
   }
   const script = document.createElement('script');
   script.setAttribute('type', 'text/javascript');

@@ -1,7 +1,7 @@
 import { isDICM } from '../..'
 
 const url = 'https://cdn.jsdelivr.net/gh/npm-for-cw/mockStaticFiles/simple2k13/dcm/isDICM.dcm'
-const url2 = 'https://cdn.jsdelivr.net/gh/npm-for-cw/mockStaticFiles/simple2k13/dcm/isDICM.png'
+const url2 = 'https://cdn.jsdelivr.net/gh/npm-for-cw/mockStaticFiles/simple2k13/png/isDICM.png'
 const fetch = (url) => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();

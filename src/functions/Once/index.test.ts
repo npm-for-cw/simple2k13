@@ -5,9 +5,9 @@ const params = ["hello", "world"]
 
 describe("Once", () => {
   test("cache", () => {
-    expect(once.run(...params)).toEqual(expect.arrayContaining(params))
-    expect(once.run('hi')).toEqual(expect.arrayContaining(params))
-    expect(once.run('？？')).toEqual(expect.arrayContaining(params))
+    expect(once.run(...params)).toMatchObject(params)
+    expect(once.run('hi')).toMatchObject(params)
+    expect(once.run('？？')).toMatchObject(params)
   })
 
 })

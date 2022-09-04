@@ -1,9 +1,10 @@
 
-import { PromiseQueue, ComputeStore, Once, IndexedDB } from './functions'
+import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery } from './functions'
 import { isNull, env, dataType } from './right'
 import { canvasDrawImage } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
+import { httpRequest, queryToObject } from './modern'
 import { version } from '../package.json'
 
 
@@ -13,13 +14,16 @@ export {
   ComputeStore,
   Once,
   IndexedDB,
+  objectToQuery,
+  queryToObject,
   isNull,
   env,
   dataType,
   canvasDrawImage,
   arrayBufferToJson,
   isDICM,
-  importScript
+  importScript,
+  httpRequest
 }
 export default {
   version,
@@ -27,11 +31,14 @@ export default {
   ComputeStore,
   Once,
   IndexedDB,
+  objectToQuery,
+  queryToObject,
   isNull,
   env,
   dataType,
   canvasDrawImage,
   arrayBufferToJson,
   isDICM,
-  importScript
+  importScript,
+  httpRequest
 }

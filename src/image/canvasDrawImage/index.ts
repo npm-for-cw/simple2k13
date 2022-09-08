@@ -5,7 +5,7 @@ interface Options {
 }
 
 export interface CanvasDrawImage {
-  (canvas: HTMLCanvasElement, url: string, options: Options): void
+  (canvas: HTMLCanvasElement, url: string, options?: Options): void
 }
 
 const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string, options: Options = {}) => {

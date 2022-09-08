@@ -4,7 +4,11 @@ interface Options {
   zoom?: number
 }
 
-const canvasDrawImage = (canvas: HTMLCanvasElement, url: string, options: Options = {}) => {
+export interface CanvasDrawImage {
+  (canvas: HTMLCanvasElement, url: string, options: Options): void
+}
+
+const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string, options: Options = {}) => {
   const { crossOrigin = 'Anonymous', zoom = 1 } = options
   return new Promise((resolve, reject) => {
     try {

@@ -1,5 +1,11 @@
 
-const canvasDrawImage = (canvas: HTMLCanvasElement, url: string, zoom: number = 1) => {
+interface Options {
+  crossOrigin?: string
+  zoom?: number
+}
+
+const canvasDrawImage = (canvas: HTMLCanvasElement, url: string, options: Options = {}) => {
+  const { crossOrigin = 'Anonymous', zoom = 1 } = options
   return new Promise((resolve, reject) => {
     try {
       const ctx = canvas?.getContext('2d')
@@ -8,6 +14,7 @@ const canvasDrawImage = (canvas: HTMLCanvasElement, url: string, zoom: number = 
       let scale = 1
 
       let img = new Image()
+      img.crossOrigin = crossOrigin
       img.src = url
       img.onload = () => {
         let iW = img.width

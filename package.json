@@ -12,9 +12,9 @@
     "lint": "eslint . --ext .js,.tsx,.ts",
     "lint:fix": "yarn lint --fix",
     "lint:staged": "lint-staged",
-    "publish:staged": "yarn lint:staged && yarn build && yarn version",
-    "publish:patch": "yarn publish:staged --patch && yarn publish",
-    "publish:prerelease": "yarn publish:staged --prerelease && yarn publish"
+    "publish:default": "yarn lint:staged && yarn build && npm publish",
+    "publish:patch": "yarn publish:default --patch",
+    "publish:prerelease": "yarn publish:default --prerelease"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [

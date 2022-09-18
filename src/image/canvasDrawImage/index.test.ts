@@ -24,7 +24,7 @@ beforeAll(() => {
 describe('canvasDrawImage', () => {
   test('drawImage success', async () => {
     try {
-      const result = await canvasDrawImage(canvas, 'successUrl', 4)
+      const result = await canvasDrawImage(canvas, 'successUrl')
       expect(result).toBe('success')
     } catch (error) {
       console.log(error)
@@ -32,7 +32,7 @@ describe('canvasDrawImage', () => {
   })
   test('drawImage failure', async () => {
     try {
-      await canvasDrawImage(canvas, 'failureUrl', 4)
+      await canvasDrawImage(canvas, 'failureUrl')
     } catch (error) {
       expect(error).toBeDefined()
       // console.log(error)

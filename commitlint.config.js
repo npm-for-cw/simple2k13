@@ -20,7 +20,7 @@ module.exports = {
         'ci'
       ]
     ],
-    'subject-valid': [2, 'always']
+    'subject-valid': [1, 'always']
   },
   plugins: [
     {

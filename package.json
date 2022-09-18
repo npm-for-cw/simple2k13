@@ -9,13 +9,16 @@
     "start": "webpack --env development --node-env development",
     "build": "webpack --env production --node-env production --progress && tsc",
     "prepare": "is-ci || husky install",
-    "lint": "eslint src/**/*",
+    "lint": "eslint . --ext .js,.tsx,.ts",
     "lint:fix": "yarn lint --fix",
-    "lint:staged": "lint-staged"
+    "lint:staged": "lint-staged",
+    "publish:default": "yarn lint:staged && yarn build && yarn publish",
+    "publish:patch": "yarn publish:default --patch",
+    "publish:prerelease": "yarn publish:default --prerelease"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
-      "eslint --ext .tsx,.ts --fix",
+      "eslint --ext js,.tsx,.ts --fix",
       "yarn test"
     ]
   },

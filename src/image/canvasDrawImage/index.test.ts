@@ -20,14 +20,13 @@ beforeAll(() => {
   });
 });
 
-
 describe('canvasDrawImage', () => {
   test('drawImage success', async () => {
     try {
       const result = await canvasDrawImage(canvas, 'successUrl')
       expect(result).toBe('success')
     } catch (error) {
-      console.log(error)
+      throw error
     }
   })
   test('drawImage failure', async () => {

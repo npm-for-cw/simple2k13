@@ -2,6 +2,7 @@
 interface Options {
   crossOrigin?: string
   zoom?: number
+  debug?: false
 }
 
 export interface CanvasDrawImage {
@@ -9,7 +10,11 @@ export interface CanvasDrawImage {
 }
 
 const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string, options: Options = {}) => {
-  const { crossOrigin = 'Anonymous', zoom = 1 } = options
+  const {
+    crossOrigin = 'Anonymous',
+    zoom = 1,
+    debug = false
+  } = options
   return new Promise((resolve, reject) => {
     try {
       const ctx = canvas?.getContext('2d')
@@ -17,7 +22,7 @@ const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string
       const cH = canvas.height
       let scale = 1
 
-      let img = new Image()
+      const img = new Image()
       img.crossOrigin = crossOrigin
       img.src = url
       img.onload = () => {
@@ -30,6 +35,18 @@ const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string
         }
         iW = iW * scale * zoom
         iH = iH * scale * zoom
+
+        debug && console.log({
+          cW,
+          cH,
+          scale,
+          zoom,
+          originIW: img.width,
+          originIH: img.height,
+          iW,
+          iH
+        })
+
         ctx?.drawImage(img, (cW - iW) / 2, (cH - iH) / 2, iW, iH)
         resolve('success')
       }

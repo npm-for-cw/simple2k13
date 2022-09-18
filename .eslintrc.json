@@ -1,16 +1,24 @@
 {
+    "root": true,
     "env": {
         "browser": true,
-        "es2021": true
+        "node": true,
+        "es2021": true,
+        "jest": true
     },
-    "extends": "standard-with-typescript",
-    "overrides": [
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
+  "plugins": ["@typescript-eslint"
+    ],
+    "overrides": [],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "parser": "@typescript-eslint/parser",
+        "project": ["./tsconfig.eslint.json"],
         "sourceType": "module"
     },
     "rules": {
-        "space-before-function-paren":0
+        "space-before-function-paren": 0
     }
 }

@@ -1,0 +1,1 @@
+export { default as arraysLaminated } from './arraysLaminated'

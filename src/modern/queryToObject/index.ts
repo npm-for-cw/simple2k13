@@ -2,7 +2,7 @@
 
 function queryToObject(search?: string) {
   search = search || location.search
-  let result: {
+  const result: {
     [params: string]: string
   } = {}
 

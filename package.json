@@ -10,18 +10,17 @@
     "build": "webpack --env production --node-env production --progress && tsc",
     "prepare": "is-ci || husky install",
     "lint": "eslint . --ext .js,.tsx,.ts",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "npm run lint --fix",
     "lint:staged": "lint-staged",
-    "publish:default": "yarn lint:staged && npm version && yarn build",
-    "publish:patch": "yarn publish:default patch && npm publish",
-    "publish:prerelease": "yarn publish:default prerelease && npm publish"
+    "publish:patch": "npm run lint:staged && npm version patch && npm run build && npm publish",
+    "publish:prerelease": "npm run lint:staged && npm version prerelease && npm run build && npm publish"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
       "eslint"
     ],
     "src/**/test.ts": [
-      "yarn test"
+      "npm run test"
     ]
   },
   "repository": {

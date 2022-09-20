@@ -3,4 +3,4 @@
 
 echo 'lint-staged'
 
-yarn lint:staged
+npm run lint:staged

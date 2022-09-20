@@ -18,7 +18,9 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
-      "eslint",
+      "eslint"
+    ],
+    "src/**/test.ts": [
       "yarn test"
     ]
   },

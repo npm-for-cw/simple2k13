@@ -2,7 +2,7 @@
 interface Options {
   crossOrigin?: string
   zoom?: number
-  debug?: false
+  debug?: boolean
 }
 
 export interface CanvasDrawImage {

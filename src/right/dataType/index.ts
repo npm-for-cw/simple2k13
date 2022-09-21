@@ -1,5 +1,5 @@
 
-const dataType = (data: any, options?: { lowercase: boolean }): string => {
+const dataType = (data: unknown, options?: { lowercase: boolean }): string => {
   const result = (typeof data)
   const { lowercase = false } = options || {}
 

@@ -1,11 +1,13 @@
+
+type Func = (...params: unknown[]) => unknown;
 class Once {
-  func: Function
-  result: any
-  constructor(func: Function) {
+  func: Func
+  result: unknown
+  constructor(func: Func) {
     this.func = func
     this.result
   }
-  run(...args: any[]) {
+  run(...args: unknown[]) {
     if (this.result !== undefined) return this.result
     this.result = this.func(...args)
     return this.result

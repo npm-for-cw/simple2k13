@@ -41,7 +41,7 @@ class IndexedDB {
       }
     })
   }
-  dispatch(func: ObjectStoreFunName, options: { mode?: IDBTransactionMode, more?: boolean } = {}, ...args: any): Promise<any> {
+  dispatch(func: ObjectStoreFunName, options: { mode?: IDBTransactionMode, more?: boolean } = {}, ...args: unknown[]): Promise<unknown> {
     const {
       mode = 'readwrite',
       more = false

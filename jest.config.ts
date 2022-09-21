@@ -4,6 +4,9 @@ export default async (): Promise<Config.InitialOptions> => {
   return {
     verbose: true,
     testEnvironment: 'jsdom',
+    "setupFiles": [
+      "fake-indexeddb/auto"
+    ]
     // moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     // transform: {
     //   '^.+\\.(ts|tsx)$': 'ts-jest',

@@ -1,12 +1,12 @@
 interface Func {
-  (params?: any): any
+  (...params: unknown[]): unknown
 }
 class ComputeStore {
-  store: Map<Func, Map<string, any>>
+  store: Map<Func, Map<string, unknown>>
   constructor() {
     this.store = new Map()
   }
-  get(func: Func, ...args: any) {
+  get(func: Func, ...args: unknown[]) {
     const params = JSON.stringify(args)
 
     if (!this.store.has(func)) {

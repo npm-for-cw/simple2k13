@@ -1,8 +1,8 @@
 import { isDICM, httpRequest } from '../..'
-jest.setTimeout(1_000 * 10)
+jest.setTimeout(1_000 * 15)
 
 const url = 'https://cdn.jsdelivr.net/gh/npm-for-cw/mockStaticFiles/simple2k13/dcm/isDICM.dcm'
-const url2 = 'https://cdn.jsdelivr.net/gh/npm-for-cw/mockStaticFiles/simple2k13/png/isDICM.png'
+const url2 = 'https://files.catbox.moe/qg3pr1.png'
 describe('isDICM', () => {
   test('isDICM', async () => {
     try {

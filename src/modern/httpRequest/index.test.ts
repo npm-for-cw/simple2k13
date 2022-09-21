@@ -1,8 +1,8 @@
 
 import { httpRequest } from '../..'
-jest.setTimeout(1_000 * 10)
+jest.setTimeout(1_000 * 15)
 
-const url = 'https://cdn.jsdelivr.net/gh/npm-for-cw/mockStaticFiles/simple2k13/dcm/isDICM.dcm'
+const url = 'https://www.fastmock.site/mock/166a3ae9bb7527f60537d59dc3bc5a17/simple/api/getArrayBufferToJsonTestData'
 const data = new FormData()
 data.append('test', '1')
 
@@ -14,13 +14,6 @@ describe('httpRequest', () => {
       send: data,
     })
     expect(res.status).toBe(200)
-  })
-  test('should return 404', async () => {
-    try {
-      await httpRequest(url + '_')
-    } catch (error) {
-      expect(error.status).toBe(404)
-    }
   })
   test('should return 405', async () => {
     try {

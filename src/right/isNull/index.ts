@@ -1,3 +1,3 @@
 
-const isNull = (value: any): Boolean => [undefined, `""`, `" "`, `null`, `[]`, `{}`].includes(JSON.stringify(value))
+const isNull = (value: unknown): boolean => [undefined, `""`, `" "`, `null`, `[]`, `{}`].includes(JSON.stringify(value))
 export default isNull

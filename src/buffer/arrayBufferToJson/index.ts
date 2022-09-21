@@ -1,4 +1,4 @@
-const arrayBufferToJson = (arrayBuffer: ArrayBuffer, debug: false) => {
+const arrayBufferToJson = (arrayBuffer: ArrayBuffer, debug = false) => {
   try {
     if (TextDecoder) {
       const enc = new TextDecoder("utf-8");

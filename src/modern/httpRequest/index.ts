@@ -4,7 +4,7 @@ export interface OpenArgv extends XMLHttpRequestAttribute {
   async?: boolean
   username?: string | null
   password?: string | null
-  [func: string]: any | undefined
+  [func: string]: any
 }
 
 type XMLHttpRequestAttribute<T = Pick<XMLHttpRequest, 'responseType' | 'timeout' | 'withCredentials'>> = {
@@ -12,7 +12,7 @@ type XMLHttpRequestAttribute<T = Pick<XMLHttpRequest, 'responseType' | 'timeout'
 
 }
 
-const httpRequest = (url: string, options: OpenArgv = {}, callback?: (params: any) => void): Promise<XMLHttpRequest> => {
+const httpRequest = (url: string, options: OpenArgv = {}, callback?: (params: XMLHttpRequest) => unknown): Promise<XMLHttpRequest> => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     if (typeof callback === 'function') callback(xhr)
@@ -28,6 +28,7 @@ const httpRequest = (url: string, options: OpenArgv = {}, callback?: (params: an
       reject(xhr)
     }
     const { method = 'GET', async = true, username, password, send, open, ...rest } = options
+    if (open) console.log(new Error(`don't config open ,please configure async、username、password`))
     xhr.open(method, url, async, username, password)
     for (const [key, value] of Object.entries(rest)) {
       if (!(key in xhr)) {

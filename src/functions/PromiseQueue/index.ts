@@ -1,7 +1,8 @@
 
+type Func = (...params: unknown[]) => unknown;
 interface Prorps {
-  arr: any[]
-  func: Function
+  arr: unknown[]
+  func: Func
   limit?: number
 }
 
@@ -11,13 +12,14 @@ class PromiseQueue {
   limit: number
   count: number
   isCancel?: boolean
-  finishSResolve?: any
+  finishSResolve: (value: unknown) => void
   constructor() {
     this.count = 0
     this.isCancel = false
     this.arr = []
     this.limit = 0
-    this.func = () => { }
+    this.func = () => ({})
+    this.finishSResolve = () => ({})
   }
   init(props: Prorps) {
     const { arr = [], func, limit = 6 } = props || {}

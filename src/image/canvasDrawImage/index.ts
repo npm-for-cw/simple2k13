@@ -1,5 +1,6 @@
-
+import { dataType } from '../..'
 interface Options {
+  interceptors?: () => Promise<boolean>
   crossOrigin?: string
   zoom?: number
   debug?: boolean
@@ -9,8 +10,9 @@ export interface CanvasDrawImage {
   (canvas: HTMLCanvasElement, url: string, options?: Options): void
 }
 
-const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string, options: Options = {}) => {
+const canvasDrawImage: CanvasDrawImage = (canvas, url, options = {}) => {
   const {
+    interceptors,
     crossOrigin = 'Anonymous',
     zoom = 1,
     debug = false
@@ -46,8 +48,17 @@ const canvasDrawImage: CanvasDrawImage = (canvas: HTMLCanvasElement, url: string
           iW,
           iH
         })
-
-        ctx?.drawImage(img, (cW - iW) / 2, (cH - iH) / 2, iW, iH)
+        const [dx, dy, dw, dh] = [(cW - iW) / 2, (cH - iH) / 2, iW, iH]
+        if (typeof interceptors === 'function') {
+          const result = interceptors()
+          if (dataType(result) !== 'Promise') throw new Error('interceptors must be Promise')
+          result.then((e) => {
+            e && ctx?.drawImage(img, dx, dy, dw, dh)
+            resolve('success')
+          })
+          return
+        }
+        ctx?.drawImage(img, dx, dy, dw, dh)
         resolve('success')
       }
       img.onerror = (error) => {

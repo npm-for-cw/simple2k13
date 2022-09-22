@@ -29,12 +29,34 @@ describe('canvasDrawImage', () => {
       throw error
     }
   })
+
   test('drawImage failure', async () => {
     try {
       await canvasDrawImage(canvas, 'failureUrl')
     } catch (error) {
       expect(error).toBeDefined()
       // console.log(error)
+    }
+  })
+
+  test('drawImage interceptors success', async () => {
+    try {
+      const result = await canvasDrawImage(canvas, 'successUrl', {
+        interceptors: () => Promise.resolve(true)
+      })
+      expect(result).toBe('success')
+    } catch (error) {
+      throw error
+    }
+  })
+
+  test('drawImage interceptors must be Promise', async () => {
+    try {
+      await canvasDrawImage(canvas, 'failureUrl', {
+        interceptors: () => Promise.resolve(true)
+      })
+    } catch (error) {
+      expect(error).toBeDefined()
     }
   })
 })

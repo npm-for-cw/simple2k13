@@ -10,7 +10,7 @@ const arrayBufferToJson = (arrayBuffer: ArrayBuffer, debug = false) => {
     return JSON.parse(decodedString);
   } catch (error) {
     debug && console.log(error)
-    return
+    return undefined
   }
 }
 export default arrayBufferToJson

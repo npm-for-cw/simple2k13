@@ -7,7 +7,7 @@ interface Options {
 }
 
 export interface CanvasDrawImage {
-  (canvas: HTMLCanvasElement, url: string, options?: Options): void
+  (canvas: HTMLCanvasElement, url: string, options?: Options): Promise<unknown>
 }
 
 const canvasDrawImage: CanvasDrawImage = (canvas, url, options = {}) => {
@@ -51,7 +51,7 @@ const canvasDrawImage: CanvasDrawImage = (canvas, url, options = {}) => {
         const [dx, dy, dw, dh] = [(cW - iW) / 2, (cH - iH) / 2, iW, iH]
         if (typeof interceptors === 'function') {
           const result = interceptors()
-          if (dataType(result) !== 'Promise') throw new Error('interceptors must be Promise')
+          if (dataType(result) !== 'Promise') throw reject(new Error('interceptors must be Promise'))
           result.then((e) => {
             e && ctx?.drawImage(img, dx, dy, dw, dh)
             resolve('success')
@@ -69,4 +69,5 @@ const canvasDrawImage: CanvasDrawImage = (canvas, url, options = {}) => {
     }
   })
 }
+
 export default canvasDrawImage

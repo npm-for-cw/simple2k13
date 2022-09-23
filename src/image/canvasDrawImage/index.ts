@@ -1,3 +1,4 @@
+import { rejects } from 'assert'
 import { dataType } from '../..'
 interface Options {
   interceptors?: () => Promise<boolean>
@@ -48,13 +49,18 @@ const canvasDrawImage: CanvasDrawImage = (canvas, url, options = {}) => {
           iW,
           iH
         })
+
         const [dx, dy, dw, dh] = [(cW - iW) / 2, (cH - iH) / 2, iW, iH]
         if (typeof interceptors === 'function') {
           const result = interceptors()
           if (dataType(result) !== 'Promise') throw reject(new Error('interceptors must be Promise'))
-          result.then((e) => {
-            e && ctx?.drawImage(img, dx, dy, dw, dh)
-            resolve('success')
+          result.then((pass) => {
+            if (pass) {
+              ctx?.drawImage(img, dx, dy, dw, dh)
+              resolve('success')
+            } else {
+              reject('cancel')
+            }
           })
           return
         }

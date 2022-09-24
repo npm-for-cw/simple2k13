@@ -1,5 +1,5 @@
 import type { Config } from '@jest/types'
-import { join } from 'path';
+// import { join } from 'path';
 export default async (): Promise<Config.InitialOptions> => {
   return {
     verbose: true,
@@ -22,7 +22,7 @@ export default async (): Promise<Config.InitialOptions> => {
     //     tsConfig: '<rootDir>/tsconfig.json',
     //   },
     // },
-    // roots: ['<rootdir>/src'], // 查找src目录中的文件
+    // roots: ['<rootDir>/src'], // 查找src目录中的文件
     collectCoverage: true, // 统计覆盖率
     coverageDirectory: 'coverage', // 覆盖率结果输出的文件夹
     coverageThreshold: {
@@ -35,12 +35,12 @@ export default async (): Promise<Config.InitialOptions> => {
       },
       // 匹配到的单个文件的覆盖率要求
       // 这里也支持通配符的配置
-      './src/**/*.{ts,tsx}': {
-        branches: 40,
-        functions: 40,
-        lines: 40,
-        statements: 40,
-      },
+      // './src/**/*.{ts,tsx}': {
+      //   branches: 40,
+      //   functions: 40,
+      //   lines: 40,
+      //   statements: 40,
+      // },
     },
     // 匹配单测用例的文件
     // testMatch: ['<rootdir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}', '<rootdir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'],

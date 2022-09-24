@@ -3,4 +3,4 @@
 
 echo 'lint-staged'
 
-npm run lint:staged
+npx lint-staged

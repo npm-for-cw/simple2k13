@@ -18,10 +18,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
-      "eslint"
-    ],
-    "src/**/test.ts": [
-      "npm run test:staged"
+      "eslint",
+      "jest --bail --findRelatedTests"
     ]
   },
   "repository": {

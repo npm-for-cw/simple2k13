@@ -1,5 +1,5 @@
 
-declare module '*.json' {
+declare module '*/package.json' {
   const version: string;
   export {
     version

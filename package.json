@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:staged": "jest --bail --findRelatedTests",
     "start": "webpack --env development --node-env development",
     "build": "webpack --env production --node-env production --progress && tsc",

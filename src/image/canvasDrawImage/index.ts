@@ -1,4 +1,4 @@
-import { rejects } from 'assert'
+
 import { dataType } from '../..'
 interface Options {
   interceptors?: () => Promise<boolean>
@@ -61,6 +61,8 @@ const canvasDrawImage: CanvasDrawImage = (canvas, url, options = {}) => {
             } else {
               reject('cancel')
             }
+          }, () => {
+            reject('cancel')
           })
           return
         }

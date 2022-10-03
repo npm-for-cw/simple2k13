@@ -1,11 +1,11 @@
 
-import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery } from './functions'
+import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery, queryToObject, debounce, throttle } from './functions'
 import { arraysLaminated } from './array'
 import { isNull, env, dataType } from './right'
 import { canvasDrawImage } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
-import { httpRequest, queryToObject } from './modern'
+import { httpRequest } from './modern'
 import { version } from '../package.json'
 
 
@@ -18,6 +18,8 @@ export {
   objectToQuery,
   queryToObject,
   arraysLaminated,
+  debounce,
+  throttle,
   isNull,
   env,
   dataType,
@@ -36,6 +38,8 @@ export default {
   objectToQuery,
   queryToObject,
   arraysLaminated,
+  debounce,
+  throttle,
   isNull,
   env,
   dataType,

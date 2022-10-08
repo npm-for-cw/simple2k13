@@ -1,12 +1,12 @@
 const throttle = (func: (...args: []) => void, wait = 0) => {
-  let timOut = false;
+  let enable = true;
 
   return (...args: []) => {
-    if (timOut) return
-    timOut = true
+    if (!enable) return
+    enable = false
     func(...args)
     setTimeout(() => {
-      timOut = false;
+      enable = true;
     }, wait)
   }
 }

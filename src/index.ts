@@ -1,7 +1,7 @@
 
 import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery, queryToObject, debounce, throttle } from './functions'
 import { arraysLaminated } from './array'
-import { isNull, env, dataType } from './right'
+import { isNull, isCanvasBlank, env, dataType } from './right'
 import { canvasDrawImage } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
@@ -21,6 +21,7 @@ export {
   debounce,
   throttle,
   isNull,
+  isCanvasBlank,
   env,
   dataType,
   canvasDrawImage,
@@ -41,6 +42,7 @@ export default {
   debounce,
   throttle,
   isNull,
+  isCanvasBlank,
   env,
   dataType,
   canvasDrawImage,

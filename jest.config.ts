@@ -5,7 +5,8 @@ export default async (): Promise<Config.InitialOptions> => {
     verbose: true,
     testEnvironment: 'jsdom',
     "setupFiles": [
-      "fake-indexeddb/auto"
+      "fake-indexeddb/auto",
+      "jest-canvas-mock"
     ],
     // moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     moduleNameMapper: {

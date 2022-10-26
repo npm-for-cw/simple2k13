@@ -6,6 +6,7 @@ import { canvasDrawImage } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
 import { httpRequest } from './modern'
+import { copyText } from './tools'
 import { version } from '../package.json'
 
 
@@ -27,7 +28,8 @@ export {
   arrayBufferToJson,
   isDICM,
   importScript,
-  httpRequest
+  httpRequest,
+  copyText
 }
 export default {
   version,
@@ -47,5 +49,6 @@ export default {
   arrayBufferToJson,
   isDICM,
   importScript,
-  httpRequest
+  httpRequest,
+  copyText
 }

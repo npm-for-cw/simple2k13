@@ -1,6 +1,6 @@
 {
   "name": "simple2k13",
-  "version": "0.0.12-4",
+  "version": "0.0.12-5",
   "description": "some simple functions",
   "main": "dist/simple.min.js",
   "types": "dist/index.d.ts",

@@ -1,8 +1,30 @@
+import { resolve } from 'path';
 import { copyText } from '../..'
 
-const content = String(Math.random() * 1000)
+
+
+let content = String(Math.random() * 1000)
+
+beforeEach(() => {
+  const mockClipboard = {
+    writeText: jest.fn(
+      (data) => {
+        return new Promise((resolve) => {
+          content = data
+          resolve('')
+        })
+      }
+    )
+  };
+  // @ts-ignore
+  global.navigator.clipboard = mockClipboard;
+  // @ts-ignore
+  document.execCommand = jest.fn((data) => data)
+
+});
+
 describe('copyText', () => {
-  test('success1', async () => {
+  test('navigator.clipboard', async () => {
     try {
       const result = await copyText(content)
       expect(result).toBe('success')
@@ -10,9 +32,9 @@ describe('copyText', () => {
       console.log(error)
     }
   })
-  // @ts-ignore
-  navigator.clipboard = undefined
-  test('success2', async () => {
+  test('execCommand', async () => {
+    // @ts-ignore
+    global.navigator.clipboard = undefined
     try {
       const result = await copyText(content)
       expect(result).toBe('success')
@@ -20,9 +42,11 @@ describe('copyText', () => {
       console.log(error)
     }
   })
-  // @ts-ignore
-  document.execCommand = undefined
   test('error', async () => {
+    // @ts-ignore
+    global.navigator.clipboard = undefined
+    // @ts-ignore
+    document.execCommand = undefined
     try {
       await copyText(content)
     } catch (error) {

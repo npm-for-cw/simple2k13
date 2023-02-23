@@ -36,7 +36,10 @@ class PromiseQueue {
   }
   async loop() {
     if (this.isCancel) return
-    if (!this.arr.length) return this.finishSResolve('finish')
+    if (!this.arr.length) {
+      (this.count === 0) ? this.finishSResolve('finish') : setTimeout(() => this.loop(), 100);
+      return
+    }
     this.count += 1
     if (this.count < this.limit) {
       this.loop()

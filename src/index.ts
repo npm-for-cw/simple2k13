@@ -2,7 +2,7 @@
 import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery, queryToObject, debounce, throttle, createElement } from './functions'
 import { arraysLaminated } from './array'
 import { isNull, isCanvasBlank, env, dataType } from './right'
-import { canvasDrawImage } from './image'
+import { canvasDrawImage, ImageDataToDataURL, ImageDataToImage, ImageDataToArraybuffer } from './image'
 import { arrayBufferToJson, isDICM } from './buffer'
 import { importScript } from './import'
 import { httpRequest } from './modern'
@@ -27,6 +27,9 @@ export {
   env,
   dataType,
   canvasDrawImage,
+  ImageDataToDataURL,
+  ImageDataToImage,
+  ImageDataToArraybuffer,
   arrayBufferToJson,
   isDICM,
   importScript,
@@ -50,6 +53,9 @@ export default {
   env,
   dataType,
   canvasDrawImage,
+  ImageDataToDataURL,
+  ImageDataToImage,
+  ImageDataToArraybuffer,
   arrayBufferToJson,
   isDICM,
   importScript,

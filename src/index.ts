@@ -1,5 +1,5 @@
 
-import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery, queryToObject, debounce, throttle } from './functions'
+import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery, queryToObject, debounce, throttle, createElement } from './functions'
 import { arraysLaminated } from './array'
 import { isNull, isCanvasBlank, env, dataType } from './right'
 import { canvasDrawImage } from './image'
@@ -21,6 +21,7 @@ export {
   arraysLaminated,
   debounce,
   throttle,
+  createElement,
   isNull,
   isCanvasBlank,
   env,
@@ -43,6 +44,7 @@ export default {
   arraysLaminated,
   debounce,
   throttle,
+  createElement,
   isNull,
   isCanvasBlank,
   env,

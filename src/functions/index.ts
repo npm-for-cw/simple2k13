@@ -7,4 +7,5 @@ export { default as objectToQuery } from './objectToQuery'
 export { default as queryToObject } from './queryToObject'
 export { default as debounce } from './debounce'
 export { default as throttle } from './throttle'
+export { default as createElement } from './createElement'
 

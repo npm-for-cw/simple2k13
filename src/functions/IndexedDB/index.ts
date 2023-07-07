@@ -20,7 +20,7 @@ class IndexedDB {
         console.warn(error)
         return reject(error)
       }
-      const res: IDBOpenDBRequest = indexedDB.open(this.dbName, this.version)
+      const res: IDBOpenDBRequest = myIndexedDB.open(this.dbName, this.version)
       res.onsuccess = (event) => {
         // @ts-ignore
         this.db = event.target?.result // 数据库对象

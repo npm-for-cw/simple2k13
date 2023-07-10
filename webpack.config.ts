@@ -2,6 +2,8 @@ import { join } from 'path';
 import { Configuration, BannerPlugin } from 'webpack';
 //@ts-ignore
 import { version } from './package.json';
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 const config: (env: any, argv: any) => Configuration = function (env, argv) {
@@ -40,7 +42,11 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
     plugins: [
       new BannerPlugin({
         banner: `simple2k13.js <cw cw2k13as@gmail.com> version：${version}`
-      })
+      }),
+      isDevelopment ? new HtmlWebpackPlugin({
+        template: './example/index.html',
+        scriptLoading: 'blocking'
+      }) : () => { }
     ]
   }
 }

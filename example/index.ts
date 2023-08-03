@@ -1,4 +1,3 @@
-// @ts-ignore
 import simple from '../dist/index'
 // @ts-ignore
 import simpleMin from '../dist/simple.min.js'

@@ -37,6 +37,10 @@
   "author": "cw<cw2k13as@gmail.com>",
   "license": "LGPL-3.0",
   "homepage": "https://github.com/npm-for-cw/simple2k13",
+  "files": [
+    "/dist",
+    "example"
+  ],
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",

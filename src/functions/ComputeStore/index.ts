@@ -1,17 +1,17 @@
-interface Func {
-  (...params: unknown[]): unknown
+interface Func<T = unknown> {
+  (...params: any[]): T
 }
 class ComputeStore {
-  store: Map<Func, Map<string, unknown>>
+  store: Map<Func, Map<string, any>>
   constructor() {
     this.store = new Map()
   }
-  get(func: Func, ...args: unknown[]) {
+  get<T>(func: Func<T>, ...args: any[]){
     const params = JSON.stringify(args)
 
     if (!this.store.has(func)) {
       const result = func(...args)
-      const paramsMap = new Map()
+      const paramsMap = new Map<string,T>()
 
       paramsMap.set(params, result)
       this.store.set(func, paramsMap)
@@ -26,7 +26,7 @@ class ComputeStore {
       paramsMap?.set(params, result)
       return result
     }
-    return paramsMap.get(params)
+    return paramsMap.get(params) as T
   }
 }
 export default ComputeStore

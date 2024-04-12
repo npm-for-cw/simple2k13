@@ -1,30 +1,45 @@
-
-import { arrayBufferToJson, httpRequest } from '../..'
+import { arrayBufferToJson } from '../..'
 import { TextDecoder } from 'text-encoding';
+
 window.TextDecoder = TextDecoder;
+// @ts-ignore
+Blob.prototype.arrayBuffer = function () {
+  let fileReader = new FileReader();
+
+  return new Promise((resolve, reject) => {
+    fileReader.onload = function (event) {
+      resolve(event.target?.result);
+    };
+
+    fileReader.onerror = function (error) {
+      reject(error);
+    };
+
+    fileReader.readAsArrayBuffer(this);
+  });
+};
+
+const data = {
+  msg: 'success',
+  code: 0,
+  result: 'arrayBufferToJson'
+}
+
+const arrayBuffer = new Blob([JSON.stringify(data)], { type: 'application/json' }).arrayBuffer();
+
 describe('arrayBufferToJson', () => {
 
   test('TextDecoder getArraybuffer', async () => {
-    const { response } = await httpRequest('https://www.fastmock.site/mock/166a3ae9bb7527f60537d59dc3bc5a17/simple/api/getArrayBufferToJsonTestData', {
-      responseType: 'arraybuffer'
-    })
-    expect(arrayBufferToJson(response, true)).toMatchObject({
-      msg: 'success',
-      code: 0,
-      result: 'arrayBufferToJson'
-    })
+    const response = await arrayBuffer;
+
+    expect(arrayBufferToJson(response, true)).toMatchObject(data)
   })
-  test('fromCharCode getArraybuffer', async () => {
+  test('fromCharCode getArraybuffer2', async () => {
     // @ts-ignore
     window.TextDecoder = undefined
-    const { response } = await httpRequest('https://www.fastmock.site/mock/166a3ae9bb7527f60537d59dc3bc5a17/simple/api/getArrayBufferToJsonTestData', {
-      responseType: 'arraybuffer'
-    })
-    expect(arrayBufferToJson(response, true)).toMatchObject({
-      msg: 'success',
-      code: 0,
-      result: 'arrayBufferToJson'
-    })
+    const response = await arrayBuffer;
+
+    expect(arrayBufferToJson(response, true)).toMatchObject(data)
   })
   test('error debug', () => {
     expect(arrayBufferToJson(new ArrayBuffer(10), true)).toBe(undefined)

@@ -1,33 +1,43 @@
-import { throttle } from '../..'
+/** @format */
 
-const wait = 1_000
-let count = 0
+import { throttle } from "../..";
 
-const func = (wait) => new Promise((reject) => {
-  setTimeout(() => {
-    reject('')
-  }, wait)
-})
+const wait = 1_000;
+let count = 0;
 
-const myThrottle = throttle(() => {
-  count += 1
-}, wait)
+const func = (wait) =>
+  new Promise((reject) => {
+    setTimeout(() => {
+      reject("");
+    }, wait);
+  });
 
-describe('storeStore', () => {
-  test('count toEqual 0', () => {
-    expect(count).toEqual(0)
-    myThrottle()
-    expect(count).toEqual(1)
-    myThrottle()
-    myThrottle()
-    myThrottle()
-    myThrottle()
-    myThrottle()
-    expect(count).toEqual(1)
-  })
-  test('count toEqual 1', async () => {
-    await func(wait)
-    expect(count).toEqual(1)
-  })
+const myThrottle = throttle(
+  () => {
+    count += 1;
+  },
+  wait,
+  { leading: true, trailing: false }
+);
 
-})
+describe("throttle", () => {
+  test("count toEqual 0", () => {
+    expect(count).toEqual(0);
+    myThrottle();
+    expect(count).toEqual(1);
+    myThrottle();
+    myThrottle();
+    myThrottle();
+    myThrottle();
+    myThrottle();
+    expect(count).toEqual(1);
+  });
+  test("count toEqual 1", async () => {
+    await func(wait);
+    expect(count).toEqual(1);
+  });
+  test("TypeError", () => {
+    // @ts-ignore
+    expect(()=>throttle(undefined, wait)).toThrow(TypeError);
+  });
+});

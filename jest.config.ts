@@ -9,6 +9,11 @@ export default async (): Promise<Config.InitialOptions> => {
       "jest-canvas-mock"
     ],
     // moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+    watchPathIgnorePatterns: ['disable.ts$'],
+    coveragePathIgnorePatterns: ['disable.ts$'],
+    // modulePathIgnorePatterns: ['disable.ts$'],
+    // testPathIgnorePatterns: ['disable.ts$'],
+    // transformIgnorePatterns: ['disable.ts$'],
     moduleNameMapper: {
       '^@/(.*)$': '<rootDir>/src/$1',
       '^~/(.*)$': '<rootDir>/src/$1',

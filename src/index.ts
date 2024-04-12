@@ -1,14 +1,31 @@
+/** @format */
 
-import { PromiseQueue, ComputeStore, Once, IndexedDB, objectToQuery, queryToObject, debounce, throttle, createElement } from './functions'
-import { arraysLaminated } from './array'
-import { isNull, isCanvasBlank, env, dataType } from './right'
-import { canvasDrawImage, ImageDataToDataURL, ImageDataToImage, ImageDataToArraybuffer } from './image'
-import { arrayBufferToJson, isDICM } from './buffer'
-import { importScript } from './import'
-import { httpRequest } from './modern'
-import { copyText } from './tools'
-import { version } from '../package.json'
+import {
+  PromiseQueue,
+  ComputeStore,
+  Once,
+  IndexedDB,
+  objectToQuery,
+  queryToObject,
+  debounce,
+  throttle,
+  createElement,
+} from "./functions";
+import { arraysLaminated } from "./array";
+import { isNull, isCanvasBlank, env, dataType } from "./right";
+import {
+  canvasDrawImage,
+  ImageDataToDataURL,
+  ImageDataToImage,
+  ImageDataToArraybuffer,
+} from "./image";
+import { arrayBufferToJson, isDICM } from "./buffer";
+import { importScript } from "./import";
+import { httpRequest } from "./modern";
+import { copyText } from "./tools";
+import _package from "../package.json";
 
+const { version } = _package;
 
 export {
   version,
@@ -34,8 +51,8 @@ export {
   isDICM,
   importScript,
   httpRequest,
-  copyText
-}
+  copyText,
+};
 export default {
   version,
   PromiseQueue,
@@ -60,5 +77,5 @@ export default {
   isDICM,
   importScript,
   httpRequest,
-  copyText
-}
+  copyText,
+};

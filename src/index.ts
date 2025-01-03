@@ -6,8 +6,10 @@ import {
   Once,
   IndexedDB,
   objectToQuery,
+  parseError,
   queryToObject,
   debounce,
+  storage,
   throttle,
   createElement,
 } from "./functions";
@@ -34,6 +36,7 @@ export {
   Once,
   IndexedDB,
   objectToQuery,
+  parseError,
   queryToObject,
   arraysLaminated,
   debounce,
@@ -52,6 +55,7 @@ export {
   importScript,
   httpRequest,
   copyText,
+  storage,
 };
 export default {
   version,
@@ -60,6 +64,7 @@ export default {
   Once,
   IndexedDB,
   objectToQuery,
+  parseError,
   queryToObject,
   arraysLaminated,
   debounce,
@@ -78,4 +83,5 @@ export default {
   importScript,
   httpRequest,
   copyText,
+  storage,
 };

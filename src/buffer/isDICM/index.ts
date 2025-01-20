@@ -1,10 +1,12 @@
+/** @format */
+
 const isDICM = (buffer: ArrayBuffer) => {
-  if (!buffer || !buffer.byteLength || buffer.byteLength <= 132) return false
-  let str = ""
-  const view = new Uint8Array(buffer, 128, 4)
+  if (!buffer || !buffer.byteLength || buffer.byteLength <= 132) return false;
+  let str = "";
+  const view = new Uint8Array(buffer, 128, 4);
   for (let i = 0; i < view.length; i++) {
-    str += String.fromCharCode(view[i])
+    str += String.fromCharCode(view[i] as number);
   }
-  return (str === "DICM")
-}
-export default isDICM
+  return str === "DICM";
+};
+export default isDICM;

@@ -8,7 +8,7 @@ const arraysLaminated = (...args: (unknown[])[]) => {
     if (dataType(item) !== 'Array') {
       continue
     }
-    item.forEach((value: unknown, j: number) => {
+    item?.forEach((value: unknown, j: number) => {
       result[i + j * argLen] = value
     })
   }

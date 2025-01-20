@@ -1,26 +1,26 @@
-import { join } from 'path';
-import { Configuration, BannerPlugin } from 'webpack';
-//@ts-ignore
-import { version } from './package.json';
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+/** @format */
+const { join } = require("path");
+const { BannerPlugin } = require("webpack");
+const { version } = require("./package.json");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = process.env.NODE_ENV === "development";
 
-const config: (env: any, argv: any) => Configuration = function (env, argv) {
+module.exports = (env, argv) => {
   return {
     // mode: undefined/*  node-env会覆盖mode */
-    target: 'web',
+    target: "web",
     entry: {
-      simple: isDevelopment ? './example/index.ts' : './src/index.ts',
+      simple: isDevelopment ? "./example/index.ts" : "./src/index.ts",
     },
-    devtool: 'source-map',
+    devtool: "source-map",
     output: {
-      path: __dirname + '/dist',
-      filename: '[name].min.js',
+      path: __dirname + "/dist",
+      filename: "[name].min.js",
       library: {
-        export: 'default',
-        name: 'simple',
-        type: 'umd',
+        export: "default",
+        name: "simple",
+        type: "umd",
         umdNamedDefine: true,
       },
       environment: {
@@ -43,32 +43,33 @@ const config: (env: any, argv: any) => Configuration = function (env, argv) {
         // // The environment supports template literals.
         // templateLiteral: true,
       },
-      clean: true
+      clean: true,
     },
     resolve: {
-      extensions: ['.ts', '.js'],
+      extensions: [".ts", ".js"],
       alias: {
-        '@src': join(__dirname, 'src'),
-      }
+        "@src": join(__dirname, "src"),
+      },
     },
     module: {
       rules: [
         {
           test: /\.tsx?$/,
-          use: 'ts-loader',
+          use: "ts-loader",
           exclude: /node_modules/,
         },
-      ]
+      ],
     },
     plugins: [
       new BannerPlugin({
-        banner: `simple2k13.js <cw cw2k13as@gmail.com> version：${version}`
+        banner: `simple2k13.js <cw cw2k13as@gmail.com> version：${version}`,
       }),
-      isDevelopment ? new HtmlWebpackPlugin({
-        template: './example/index.html',
-        scriptLoading: 'blocking'
-      }) : () => { }
-    ]
-  }
-}
-export default config;
+      isDevelopment
+        ? new HtmlWebpackPlugin({
+            template: "./example/index.html",
+            scriptLoading: "blocking",
+          })
+        : () => {},
+    ],
+  };
+};

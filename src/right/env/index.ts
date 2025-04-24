@@ -14,7 +14,7 @@ const env = (userAgent?: string, platform?: string) => {
     isMobile: !!userAgent.match(/mobile|phone/i),
 
     isAndroid: !!userAgent.match(/android/i),
-    IsIphone: !!userAgent.match(/iphone/i),
+    isIphone: !!userAgent.match(/iphone/i),
     isWM: !!userAgent.match(/windows mobile/i),
 
     isWeChat: !!userAgent.match(/MicroMessenger/i),

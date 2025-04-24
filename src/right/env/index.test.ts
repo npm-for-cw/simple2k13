@@ -13,7 +13,7 @@ describe('test env', () => {
       isIpad: true,
       isMobile: true,
       isAndroid: true,
-      IsIphone: true,
+      isIphone: true,
       isWM: true,
       isWeChat: true,
     })

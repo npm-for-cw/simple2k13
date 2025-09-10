@@ -16,6 +16,7 @@ import {
 import { arraysLaminated } from "./array";
 import { isNull, isCanvasBlank, env, dataType } from "./right";
 import {
+  arrayBufferToImage,
   canvasDrawImage,
   ImageDataToDataURL,
   ImageDataToImage,
@@ -46,6 +47,7 @@ export {
   isCanvasBlank,
   env,
   dataType,
+  arrayBufferToImage,
   canvasDrawImage,
   ImageDataToDataURL,
   ImageDataToImage,
